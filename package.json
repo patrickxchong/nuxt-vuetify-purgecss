@@ -1,0 +1,20 @@
+{
+  "name": "nuxt-vuetify-purgecss",
+  "version": "1.0.0",
+  "description": "Example project to highlight problem of using vuetify with purgecss on nuxt",
+  "author": "patrickxchong",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.0.0",
+    "nuxt-purgecss": "^1.0.0"
+  }
+}
