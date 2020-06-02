@@ -40,7 +40,7 @@ export default {
   ],
 
   purgeCSS: {
-    whitelist: ['v-application', 'v-application--wrap'],
+    whitelist: ['v-application', 'v-application--wrap', 'input', 'button', 'spacer'],
     whitelistPatterns: [/^v-((?!application).)*$/, /^theme--light*/, /.*-transition/],
     whitelistPatternsChildren: [/^v-((?!application).)*$/, /^theme--light*/],
   },
