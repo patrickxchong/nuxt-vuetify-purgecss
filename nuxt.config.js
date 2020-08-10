@@ -36,14 +36,8 @@ export default {
   */
   buildModules: [
     '@nuxtjs/vuetify',
-    'nuxt-purgecss'
   ],
 
-  purgeCSS: {
-    whitelist: ['v-application', 'v-application--wrap', 'input', 'button', 'spacer'],
-    whitelistPatterns: [/^v-((?!application).)*$/, /^theme--light*/, /.*-transition/],
-    whitelistPatternsChildren: [/^v-((?!application).)*$/, /^theme--light*/],
-  },
   /*
   ** Nuxt.js modules
   */

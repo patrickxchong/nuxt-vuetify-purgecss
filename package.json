@@ -7,14 +7,14 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
+    "analyze": "nuxt build --analyze",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "nuxt": "^2.0.0"
+    "nuxt": "2.14.1"
   },
   "devDependencies": {
-    "@nuxtjs/vuetify": "^1.0.0",
-    "nuxt-purgecss": "^1.0.0"
+    "@nuxtjs/vuetify": "^1.0.0"
   }
 }
