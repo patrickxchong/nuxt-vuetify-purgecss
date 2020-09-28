@@ -1,6 +1,6 @@
 # nuxt-vuetify-purgecss
 
-> Example project to highlight problem of using vuetify with purgecss on nuxt
+> Proof of concept of how to use PurgeCSS with Vuetify on Nuxt.js
 
 ## Build Setup
 

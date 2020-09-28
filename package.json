@@ -1,7 +1,7 @@
 {
   "name": "nuxt-vuetify-purgecss",
   "version": "1.0.0",
-  "description": "Example project to highlight problem of using vuetify with purgecss on nuxt",
+  "description": "Proof of concept of making Vuetify work with purgeCSS",
   "author": "patrickxchong",
   "private": true,
   "scripts": {
@@ -14,7 +14,8 @@
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^3.0.0",
     "@nuxtjs/vuetify": "^1.0.0",
-    "nuxt-purgecss": "^1.0.0"
+    "css-byebye": "^2.0.2"
   }
 }

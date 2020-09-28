@@ -1,4 +1,6 @@
-import colors from 'vuetify/es5/util/colors'
+const { NODE_ENV = "production" } = process.env;
+
+const isDev = NODE_ENV === "development";
 
 export default {
   mode: 'universal',
@@ -36,49 +38,57 @@ export default {
   */
   buildModules: [
     '@nuxtjs/vuetify',
-    'nuxt-purgecss'
   ],
 
-  purgeCSS: {
-    whitelist: ['v-application', 'v-application--wrap', 'input', 'button', 'spacer'],
-    whitelistPatterns: [/^v-((?!application).)*$/, /^theme--light*/, /.*-transition/],
-    whitelistPatternsChildren: [/^v-((?!application).)*$/, /^theme--light*/],
-  },
   /*
   ** Nuxt.js modules
   */
   modules: [
   ],
   /*
-  ** vuetify module configuration
-  ** https://github.com/nuxt-community/vuetify-module
-  */
-  vuetify: {
-    // customVariables: ['~/assets/variables.scss'],
-    // theme: {
-    //   dark: true,
-    //   themes: {
-    //     dark: {
-    //       primary: colors.blue.darken2,
-    //       accent: colors.grey.darken3,
-    //       secondary: colors.amber.darken3,
-    //       info: colors.teal.lighten1,
-    //       warning: colors.amber.base,
-    //       error: colors.deepOrange.accent4,
-    //       success: colors.green.accent3
-    //     }
-    //   }
-    // }
-  },
-  /*
   ** Build configuration
   */
   build: {
     extractCSS: true,
+
+    postcss:
+    {
+      // disable postcss plugins in development
+      plugins: isDev
+        ? {} : {
+          "@fullhuman/postcss-purgecss": {
+            content: [
+              'components/**/*.vue',
+              'layouts/**/*.vue',
+              'pages/**/*.vue',
+              'plugins/**/*.js',
+              'node_modules/vuetify/src/**/*.ts',
+            ],
+            styleExtensions: ['.css'],
+            safelist: {
+              standard: ["body", "html", "nuxt-progress"],
+              deep: [
+                /page-enter/,
+                /page-leave/,
+                /dialog-transition/,
+                /tab-transition/,
+                /tab-reversetransition/
+              ]
+            }
+
+          },
+          "css-byebye": {
+            rulesToRemove: [
+              /.*\.v-application--is-rtl.*/,
+              /.*\.theme--dark.*/
+            ]
+          }
+        }
+    },
     /*
     ** You can extend webpack config here
     */
     extend(config, ctx) {
     }
   }
-}
+};
