@@ -66,7 +66,12 @@ export default {
             ],
             styleExtensions: ['.css'],
             safelist: {
-              standard: ["body", "html", "nuxt-progress"],
+              standard: [
+                "body",
+                "html",
+                "nuxt-progress",
+                /col-*/ // enable if using v-col for layout
+              ],
               deep: [
                 /page-enter/,
                 /page-leave/,
